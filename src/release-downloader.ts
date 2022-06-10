@@ -89,7 +89,7 @@ export class ReleaseDownloader {
     const headers: IHeaders = {Accept: "application/vnd.github.v3+json"}
 
     const response = await this.httpClient.get(
-      `${this._apiRoot}/${repoPath}/releases/tags/${tag}`,
+      `${this._apiRoot}/${repoPath}/archive/refs/tags/${tag}`,
       headers
     )
 
