@@ -12,7 +12,7 @@ import {IReleaseDownloadSettings} from "./download-settings"
 export class ReleaseDownloader {
   private httpClient: thc.HttpClient
 
-  private _apiRoot = "https://api.github.com/repos"
+  private _apiRoot = "https://github.com/"
 
   constructor(httpClient: thc.HttpClient) {
     this.httpClient = httpClient

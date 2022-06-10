@@ -94,6 +94,9 @@ typings/
 .DS_Store
 Thumbs.db
 
+# phpstorme
+.idea
+
 # Ignore built ts files
 __tests__/runner/*
 lib/**/*
