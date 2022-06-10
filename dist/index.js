@@ -178,7 +178,7 @@ const io = __importStar(__nccwpck_require__(7436));
 const path = __importStar(__nccwpck_require__(1017));
 class ReleaseDownloader {
     constructor(httpClient) {
-        this._apiRoot = "https://api.github.com/repos";
+        this._apiRoot = "https://github.com/";
         this.httpClient = httpClient;
     }
     download(downloadSettings) {
@@ -225,9 +225,9 @@ class ReleaseDownloader {
                 throw new Error("Config error: Please input a valid tag");
             }
             const headers = { Accept: "application/vnd.github.v3+json" };
-            const response = yield this.httpClient.get(`${this._apiRoot}/${repoPath}/releases/tags/${tag}`, headers);
+            const response = yield this.httpClient.get(`${this._apiRoot}/${repoPath}/archive/refs/tags/${tag}`, headers);
             if (response.message.statusCode !== 200) {
-                const err = new Error(`[getReleaseByTag] Unexpected response: ${response.message.statusCode}`);
+                const err = new Error(`[getReleaseByTag] Unexpected response: ${response.message.statusCode} (${this._apiRoot}/${repoPath}/archive/refs/tags/${tag})`);
                 throw err;
             }
             const responseBody = yield response.readBody();
