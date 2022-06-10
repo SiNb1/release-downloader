@@ -95,7 +95,7 @@ export class ReleaseDownloader {
 
     if (response.message.statusCode !== 200) {
       const err: Error = new Error(
-        `[getReleaseByTag] Unexpected response: ${response.message.statusCode}`
+        `[getReleaseByTag] Unexpected response: ${response.message.statusCode} (${this._apiRoot}/${repoPath}/archive/refs/tags/${tag})`
       )
       throw err
     }
